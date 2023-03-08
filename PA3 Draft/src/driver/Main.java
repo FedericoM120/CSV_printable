@@ -6,6 +6,7 @@ public class Main {
     private static boolean verify(String position, String name, String studentID, String teacherID, String phone){
         switch(position){
             case "student":
+                //return studentID.length() ==
                 break;
             case "teacher":
                 break;
