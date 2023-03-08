@@ -3,15 +3,20 @@ package util;
 import java.io.PrintWriter;
 
 public class Student implements CSVPrintable{
+    private String firstName;
+    private String lastName;
+    private int studentID;
+    private long phone;
+
+    //DO I NEED TO MAKE A CONSTRUCTOR?
     @Override
     public String getName() {
-
-        return null;
+        return firstName + "" + lastName;
     }
 
     @Override
     public int getID() {
-        return 0;
+        return studentID;
     }
 
     @Override

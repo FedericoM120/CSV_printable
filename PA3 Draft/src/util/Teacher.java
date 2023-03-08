@@ -3,14 +3,20 @@ package util;
 import java.io.PrintWriter;
 
 public class Teacher implements CSVPrintable{
+    private String firstName;
+    private String lastName;
+    private int teacherID;
+    private long phone;
     @Override
     public String getName() {
-        return null;
+
+        return firstName + "" + lastName;
     }
 
     @Override
     public int getID() {
-        return 0;
+
+        return teacherID;
     }
 
     @Override
