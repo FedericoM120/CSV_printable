@@ -6,11 +6,22 @@ public class Main {
     private static boolean verify(String position, String name, String studentID, String teacherID, String phone){
         switch(position){
             case "student":
-                //return studentID.length() ==
+                if (!name.contains(",") || (studentID.equals("0")) || studentID.length() != 5 ||
+                !teacherID.equals("0") || phone.length() != 10) {
+                    return false;
+                }
                 break;
             case "teacher":
+                if (!name.contains(",") || !studentID.equals("0") || teacherID.length() != 5 ||
+                        !studentID.equals("0") || phone.length() != 4) {
+                    return false;
+                }
                 break;
             case "TA":
+                if (!name.contains(",") || studentID.equals("0") || studentID.length() != 5 ||
+                        teacherID.equals("0") || teacherID.length() != 5 || phone.length() != 10) {
+                    return false;
+                }
                 break;
             default:
                 return false;
@@ -23,13 +34,13 @@ public class Main {
         CSVPrintable person;
         switch(position){
             case "teacher":
-                person = new Teacher();
+                person = new Teacher(name, teacherID, phone);
                 break;
             case "TA":
-                person = new TA();
+                person = new TA(name, studentID, phone);
                 break;
             default:
-                person = new Student();
+                person = new Student(name, studentID, phone);
 
         }
         return person;
@@ -42,10 +53,12 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the number of persons: ");
         int n = scanner.nextInt();
+
         while(n < 0){
             System.out.println("A Negative number is entered. Please try again!");
             n = scanner.nextInt();
         }
+
         for(int i = 0; i < n;i++){
             String[] tokens = scanner.nextLine().split(" ");
             if(tokens.length != 5){
