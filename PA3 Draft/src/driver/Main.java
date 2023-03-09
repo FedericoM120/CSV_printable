@@ -34,13 +34,13 @@ public class Main {
         CSVPrintable person;
         switch(position){
             case "teacher":
-                person = new Teacher(name, teacherID, phone);
+                person = new Teacher(position, name, teacherID, phone);
                 break;
             case "TA":
-                person = new TA(name, studentID, phone);
+                person = new TA(position, name, studentID, phone);
                 break;
             default:
-                person = new Student(name, studentID, phone);
+                person = new Student(position, name, studentID, phone);
 
         }
         return person;

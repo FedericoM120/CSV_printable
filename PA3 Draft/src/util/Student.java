@@ -6,11 +6,13 @@ public class Student implements CSVPrintable{
     private String name;
     private int studentID;
     private long phone;
+    private String position;
 
-    public Student(String name, String studentID, String phone) {
+    public Student(String position, String name, String studentID, String phone) {
         this.name = name;
         this.studentID = Integer.parseInt(studentID);
         this.phone = Long.parseLong(phone);
+        this.position = position;
     }
 
     @Override
