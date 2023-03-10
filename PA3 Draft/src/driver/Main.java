@@ -41,25 +41,24 @@ public class Main {
                 break;
             default:
                 person = new Student(position, name, studentID, phone);
-
         }
         return person;
     }
     public static final String OUTPUT_PATH = System.getProperty("user.dir") + "/output/";
     public static void main(String[] args) throws IOException{
-        // write your code here
         PrintWriter p = new PrintWriter(OUTPUT_PATH + "out.csv");
         CSVPrintable person;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the number of persons: ");
-        int n = scanner.nextInt();
+        int n = Integer.parseInt(scanner.nextLine());
 
         while(n < 0){
             System.out.println("A Negative number is entered. Please try again!");
             n = scanner.nextInt();
         }
-
+            //scanner.nextLine();
         for(int i = 0; i < n;i++){
+            System.out.println("enter user info");
             String[] tokens = scanner.nextLine().split(" ");
             if(tokens.length != 5){
                 i--;
