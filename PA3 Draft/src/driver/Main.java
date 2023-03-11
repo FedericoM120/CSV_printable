@@ -46,6 +46,7 @@ public class Main {
     }
     public static final String OUTPUT_PATH = System.getProperty("user.dir") + "/output/";
     public static void main(String[] args) throws IOException{
+        System.out.println(OUTPUT_PATH);
         PrintWriter p = new PrintWriter(OUTPUT_PATH + "out.csv");
         CSVPrintable person;
         Scanner scanner = new Scanner(System.in);

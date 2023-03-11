@@ -15,8 +15,12 @@ public class Student implements CSVPrintable{
 
     @Override
     public String getName() {
+        //parse string
+        //when string encounters comma, remove comma and add a space
+       String str = name;
+       String newName = str.replace(",", " ");
 
-        return name;
+        return newName;
     }
 
     @Override
@@ -24,9 +28,9 @@ public class Student implements CSVPrintable{
 
         return studentID;
     }
-
+// public void csvPrintln(PrintWriter out) {out.println(String.format("%s,%d,%d", getName(), getID(), phone));}
     @Override
     public void csvPrintln(PrintWriter out) {
-        out.println(String.format("%s,%d,%d", getName(), getID(), phone));
+        out.println(getName() + "," + getID() + "," + phone);
     }
 }

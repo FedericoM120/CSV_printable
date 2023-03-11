@@ -16,8 +16,10 @@ public class Teacher implements CSVPrintable{
 
     @Override
     public String getName() {
+        String str = name;
+        String newName = str.replace(",", " ");
 
-        return name;
+        return newName;
     }
 
     @Override
