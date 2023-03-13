@@ -11,8 +11,9 @@ public class Teacher implements CSVPrintable{
     public Teacher(String name, String teacherID, String phone) {
         this.name = name;
         this.teacherID = Integer.parseInt(teacherID);
-        this.phone = Integer.parseInt(phone);
+        this.phone = Integer.parseInt(String.valueOf(phone).substring(Math.max(String.valueOf(phone).length() - 4, 0)));
     }
+
 
     @Override
     public String getName() {
@@ -30,6 +31,7 @@ public class Teacher implements CSVPrintable{
 
     @Override
     public void csvPrintln(PrintWriter out) {
-        out.println(String.format("%s,%d,%d", getName(), getID(), phone));
+        out.println(getName() + "," + getID() + "," + phone );
     }
 }
+

@@ -28,7 +28,7 @@ public class Student implements CSVPrintable{
 
         return studentID;
     }
-// public void csvPrintln(PrintWriter out) {out.println(String.format("%s,%d,%d", getName(), getID(), phone));}
+
     @Override
     public void csvPrintln(PrintWriter out) {
         out.println(getName() + "," + getID() + "," + phone);

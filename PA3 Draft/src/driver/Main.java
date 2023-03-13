@@ -6,14 +6,14 @@ public class Main {
     private static boolean verify(String position, String name, String studentID, String teacherID, String phone){
         switch(position){
             case "student":
-                if (!name.contains(",") || (studentID.equals("0")) || studentID.length() != 5 ||
+                if (name.charAt(0) == ','|| !name.contains(",") || (studentID.equals("0")) || studentID.length() != 5 ||
                 !teacherID.equals("0") || phone.length() != 10) {
                     return false;
                 }
                 break;
             case "teacher":
                 if (!name.contains(",") || !studentID.equals("0") || teacherID.length() != 5 ||
-                        !studentID.equals("0") || phone.length() != 4) {
+                        teacherID.equals("0") || phone.length() != 10) {
                     return false;
                 }
                 break;
@@ -28,6 +28,9 @@ public class Main {
         }
         return true;
     }
+    //teacher alex,martinez 0 98765 3053489999
+    //student rose,gonzales 56789 0 9876543210
+    //TA john,cruz 88888 99999 1234567890
     private static CSVPrintable createPerson(String position, String name,
                                              String studentID, String teacherID,
                                              String phone){
@@ -37,7 +40,7 @@ public class Main {
                 person = new Teacher(name, teacherID, phone);
                 break;
             case "TA":
-                person = new TA(name, studentID, phone);
+                person = new TA(name, studentID, teacherID, phone);
                 break;
             default:
                 person = new Student(name, studentID, phone);
